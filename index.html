@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Azunna Sushi - Uma experiência gastronômica japonesa refinada de sabor e sofisticação em um ambiente de luxo.">
+  <title>Azunna Sushi | Experiência Gastronômica Premium</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background overlay structure for parallax/visual depth -->
+  <div class="bg-overlay"></div>
+
+  <!-- Header & Navigation -->
+  <header class="header">
+    <nav class="navbar" id="navbar">
+      <a href="#" class="brand">
+        <span class="logo-gold">Azunna</span> Sushi
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" class="nav-item active">Início</a></li>
+        <li><a href="#cardapio" class="nav-item">Cardápio</a></li>
+        <li><a href="#reserva" class="nav-item">Reservas</a></li>
+        <li><a href="#sobre" class="nav-item">O Restaurante</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#reserva" class="btn btn-primary btn-sm btn-nav">Reservar Mesa</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <span class="hero-subtitle">Alta Gastronomia Japonesa</span>
+      <h1 class="hero-title">Uma experiência refinada de sabor e sofisticação</h1>
+      <p class="hero-description">Descubra a elegância do sushi preparado com precisão, ingredientes premium e apresentação impecável em um ambiente de luxo.</p>
+      
+      <div class="hero-buttons">
+        <a href="#cardapio" class="btn btn-primary">Conhecer o Cardápio</a>
+        <a href="#reserva" class="btn btn-secondary">Reservar uma Mesa</a>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <span class="scroll-text">Deslize para explorar</span>
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- About Section -->
+    <section id="sobre" class="about-section section-padding">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text-content">
+            <span class="section-tag">Nossa Essência</span>
+            <h2 class="section-title">A Arte da Perfeição em Cada Detalhe</h2>
+            <p class="about-desc">
+              No Azunna Sushi, fundimos a tradição milenar com a inovação culinária. Sob a tutela de chefs renomados, cada fatia de peixe é selecionada de forma rigorosa e cada prato é desenhado para surpreender os paladares mais exigentes.
+            </p>
+            <div class="about-features">
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-gem"></i></div>
+                <div>
+                  <h3>Ingredientes Premium</h3>
+                  <p>Peixes frescos de pesca sustentável importados e locais.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-certificate"></i></div>
+                <div>
+                  <h3>Chefs Especialistas</h3>
+                  <p>Mestres na arte do sushi com técnica e rigor absoluto.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-visual">
+            <div class="visual-wrapper">
+              <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3VzaGklMjBjaGVmfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Chefs preparando Sushi Especial" class="about-img main-img">
+              <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3VzaGklMjBwbGF0ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Prato Premium de Sushi" class="about-img sub-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cardápio (Menu) Section -->
+    <section id="cardapio" class="menu-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Menu Exclusivo</span>
+          <h2 class="section-title">O Cardápio Azunna</h2>
+          <p class="section-subtitle">Selecione uma categoria para descobrir nossas criações artesanais</p>
+        </div>
+
+        <!-- Menu Tabs -->
+        <div class="menu-tabs">
+          <button class="tab-btn active" data-tab="comidas">
+            <i class="fa-solid fa-bowl-rice"></i> 🍣 Comidas
+          </button>
+          <button class="tab-btn" data-tab="bebidas">
+            <i class="fa-solid fa-wine-glass"></i> 🍷 Bebidas
+          </button>
+        </div>
+
+        <!-- Tab Content: Comidas -->
+        <div class="tab-content active" id="comidas">
+          <div class="menu-grid">
+            <!-- Sushi Especial Premium -->
+            <div class="menu-card-group">
+              <h3 class="group-title"><i class="fa-solid fa-star gold-text"></i> Sushi Especial Premium</h3>
+              <div class="menu-items">
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Sushi de Salmão</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 78</span>
+                  </div>
+                  <p class="menu-item-desc">Salmão premium fresco maçaricado, raspas de limão siciliano e azeite trufado.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Sushi de Atum</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 85</span>
+                  </div>
+                  <p class="menu-item-desc">Atum selado premium com geleia de pimenta artesanal e flor de sal.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Sushi de Camarão</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 92</span>
+                  </div>
+                  <p class="menu-item-desc">Camarão imperial cozido a vapor com molho ponzu especial e ovas de massago.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Omakase do Chef -->
+            <div class="menu-card-group">
+              <h3 class="group-title"><i class="fa-solid fa-wand-magic-sparkles gold-text"></i> Omakase do Chef</h3>
+              <div class="menu-items">
+                <div class="menu-item highlight">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Omakase Tradicional <span class="badge">Popular</span></span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 180</span>
+                  </div>
+                  <p class="menu-item-desc">Sequência selecionada de 12 peças tradicionais montadas de acordo com os melhores peixes do dia.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Omakase Especial</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 240</span>
+                  </div>
+                  <p class="menu-item-desc">Experiência expandida com 16 peças, incluindo iguarias sazonais e toque contemporâneo do chef.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Omakase Premium</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 320</span>
+                  </div>
+                  <p class="menu-item-desc">A jornada definitiva de 20 peças com vieiras importadas, foie gras e ovas de salmão selvagem.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Temaki de Salmão -->
+            <div class="menu-card-group">
+              <h3 class="group-title"><i class="fa-solid fa-circle-radiation gold-text"></i> Temaki de Salmão</h3>
+              <div class="menu-items">
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Temaki Salmão Crispy</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 48</span>
+                  </div>
+                  <p class="menu-item-desc">Copo de alga crocante recheado com salmão em cubos e flocos de tempurá.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Temaki Salmão Cream Cheese</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 52</span>
+                  </div>
+                  <p class="menu-item-desc">Salmão premium cortado na ponta da faca com cream cheese Philadelphia e cebolinha fresca.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Temaki Salmão Spicy</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 54</span>
+                  </div>
+                  <p class="menu-item-desc">Salmão picado com pimenta sriracha, ovas de massago e um toque de gergelim torrado.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content: Bebidas -->
+        <div class="tab-content" id="bebidas">
+          <div class="menu-grid">
+            <!-- Cervejas Selecionadas -->
+            <div class="menu-card-group">
+              <h3 class="group-title"><i class="fa-solid fa-beer-mug-empty gold-text"></i> Cervejas Selecionadas</h3>
+              <div class="menu-items">
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Heineken</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 16</span>
+                  </div>
+                  <p class="menu-item-desc">Long neck gelada, puro malte internacional.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Corona</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 18</span>
+                  </div>
+                  <p class="menu-item-desc">Cerveja mexicana leve, servida com uma rodela de limão.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Stella Artois</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 16</span>
+                  </div>
+                  <p class="menu-item-desc">Premium lager belga de amargor suave e aroma floral.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Skol</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 12</span>
+                  </div>
+                  <p class="menu-item-desc">Pilsen tradicional brasileira, leve e extremamente refrescante.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sake Premium -->
+            <div class="menu-card-group">
+              <h3 class="group-title"><i class="fa-solid fa-whiskey-glass gold-text"></i> Sake Premium & Whisky</h3>
+              <div class="menu-items">
+                <div class="menu-item highlight">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Junmai Daiginjo <span class="badge">Nobre</span></span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 75 <span class="unit">(Dose)</span></span>
+                  </div>
+                  <p class="menu-item-desc">O mais alto nível de sake japonês refinado, frutado e complexo.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Yamazaki 12 Anos</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 95 <span class="unit">(Dose)</span></span>
+                  </div>
+                  <p class="menu-item-desc">Whisky single malt japonês lendário com notas de baunilha e carvalho japonês (Mizunara).</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Hakushu Single Malt</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 90 <span class="unit">(Dose)</span></span>
+                  </div>
+                  <p class="menu-item-desc">Whisky japonês fresco com notas herbais levemente defumadas das florestas do Monte Kaikoma.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Drinks Exclusivos -->
+            <div class="menu-card-group">
+              <h3 class="group-title"><i class="fa-solid fa-cocktail gold-text"></i> Drinks Exclusivos</h3>
+              <div class="menu-items">
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Caipirinha de Sake</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 28</span>
+                  </div>
+                  <p class="menu-item-desc">Combinação refrescante de sake importado com limão tahiti e xarope simples.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Batida de Morango</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 26</span>
+                  </div>
+                  <p class="menu-item-desc">Morangos frescos macerados, sake premium, leite condensado e gelo triturado.</p>
+                </div>
+                <div class="menu-item">
+                  <div class="menu-item-header">
+                    <span class="menu-item-name">Suco de Laranja Natural</span>
+                    <span class="menu-item-line"></span>
+                    <span class="menu-item-price">R$ 14</span>
+                  </div>
+                  <p class="menu-item-desc">Espremido na hora com laranjas frescas selecionadas da estação.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reserva" class="reservation-section section-padding">
+      <div class="container">
+        <div class="reservation-box">
+          <div class="reservation-header text-center">
+            <span class="section-tag">Reserve seu Lugar</span>
+            <h2 class="section-title">Experiência Exclusiva</h2>
+            <p class="section-subtitle">Garanta sua mesa e desfrute de momentos inesquecíveis</p>
+          </div>
+          
+          <form class="reservation-form" id="bookingForm" onsubmit="handleReservation(event)">
+            <div class="form-grid">
+              <!-- Name -->
+              <div class="form-group full-width">
+                <label for="clientName"><i class="fa-regular fa-user"></i> Nome Completo</label>
+                <input type="text" id="clientName" placeholder="Digite seu nome..." required>
+              </div>
+
+              <!-- Day Selection -->
+              <div class="form-group">
+                <label for="reservationDay"><i class="fa-regular fa-calendar"></i> Dia</label>
+                <div class="select-wrapper">
+                  <select id="reservationDay" required>
+                    <option value="" disabled selected>Selecione o dia...</option>
+                    <option value="Segunda-feira">Segunda-feira</option>
+                    <option value="Terça-feira">Terça-feira</option>
+                    <option value="Quarta-feira">Quarta-feira</option>
+                    <option value="Quinta-feira">Quinta-feira</option>
+                    <option value="Sexta-feira">Sexta-feira</option>
+                    <option value="Sábado">Sábado</option>
+                  </select>
+                  <i class="fa-solid fa-chevron-down select-icon"></i>
+                </div>
+              </div>
+
+              <!-- Hour Selection -->
+              <div class="form-group">
+                <label for="reservationTime"><i class="fa-regular fa-clock"></i> Horário</label>
+                <div class="select-wrapper">
+                  <select id="reservationTime" required>
+                    <option value="" disabled selected>Selecione a hora...</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:30">20:30</option>
+                    <option value="21:00">21:00</option>
+                    <option value="21:30">21:30</option>
+                    <option value="22:00">22:00</option>
+                  </select>
+                  <i class="fa-solid fa-chevron-down select-icon"></i>
+                </div>
+              </div>
+
+              <!-- People Selection -->
+              <div class="form-group full-width">
+                <label for="reservationGuests"><i class="fa-solid fa-user-group"></i> Quantidade de Pessoas</label>
+                <div class="select-wrapper">
+                  <select id="reservationGuests" required>
+                    <option value="" disabled selected>Selecione a quantidade...</option>
+                    <option value="1 pessoa">1 pessoa</option>
+                    <option value="2 pessoas">2 pessoas</option>
+                    <option value="3 pessoas">3 pessoas</option>
+                    <option value="4 pessoas">4 pessoas</option>
+                    <option value="5 pessoas">5 pessoas</option>
+                    <option value="6 pessoas">6 pessoas</option>
+                    <option value="7 pessoas">7 pessoas</option>
+                    <option value="8 pessoas">8 pessoas</option>
+                    <option value="9 pessoas">9 pessoas</option>
+                    <option value="10 pessoas">10 pessoas</option>
+                  </select>
+                  <i class="fa-solid fa-chevron-down select-icon"></i>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Confirmar Pré-Reserva</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal / Success Notification -->
+  <div class="modal-backdrop" id="successModal">
+    <div class="modal-content">
+      <div class="modal-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h3 class="modal-title">Reserva Confirmada!</h3>
+      <p class="modal-message" id="successMessage"></p>
+      <button class="btn btn-primary" onclick="closeModal()">Ótimo, obrigado!</button>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-section">
+          <a href="#" class="footer-brand">
+            <span class="logo-gold">Azunna</span> Sushi
+          </a>
+          <p class="footer-desc">Uma jornada de elegância gastronômica que celebra a pura essência dos sabores japoneses.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="TripAdvisor"><i class="fa-brands fa-tripadvisor"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-info-section">
+          <h4>Funcionamento</h4>
+          <p><i class="fa-regular fa-clock"></i> Segunda a Sábado: 18:00 - 23:30</p>
+          <p><i class="fa-regular fa-calendar-xmark"></i> Fechado aos Domingos</p>
+        </div>
+
+        <div class="footer-info-section">
+          <h4>Contato & Localização</h4>
+          <p><i class="fa-solid fa-map-location-dot"></i> Av. das Nações, 4200 - Jardins, São Paulo - SP</p>
+          <p><i class="fa-solid fa-phone"></i> +55 (11) 98765-4321</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center">
+        <p>&copy; 2026 Restaurante Azunna Sushi. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
