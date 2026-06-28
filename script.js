@@ -1,3 +1,12 @@
+// === Firebase SDK (importado via CDN) ===
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// === Inicialização do Firebase ===
+// Lê as configs do arquivo firebase-config.js
+const app = initializeApp(window.FIREBASE_CONFIG);
+const db = getFirestore(app);
+
 // --- Navbar Scroll Effect ---
 window.addEventListener('scroll', function() {
   const header = document.getElementById('navbar').parentElement;
@@ -24,7 +33,6 @@ if (menuToggle && navLinks) {
     }
   });
 
-  // Close nav menu on clicking any link
   const items = navLinks.querySelectorAll('a');
   items.forEach(item => {
     item.addEventListener('click', function() {
@@ -33,7 +41,6 @@ if (menuToggle && navLinks) {
     });
   });
 
-  // Close nav menu on clicking outside
   document.addEventListener('click', function(event) {
     if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
       navLinks.classList.remove('open');
@@ -48,21 +55,16 @@ const tabContents = document.querySelectorAll('.tab-content');
 
 tabButtons.forEach(btn => {
   btn.addEventListener('click', function() {
-    // Remove active state from all buttons
     tabButtons.forEach(b => b.classList.remove('active'));
-    // Add active state to clicked button
     this.classList.add('active');
 
     const targetTab = this.getAttribute('data-tab');
-
-    // Fade out active content, then switch and fade in
     tabContents.forEach(content => {
       if (content.classList.contains('active')) {
         content.classList.remove('active');
       }
     });
 
-    // Timeout to match animation or keep smooth transition
     setTimeout(() => {
       const activeContent = document.getElementById(targetTab);
       if (activeContent) {
@@ -72,40 +74,64 @@ tabButtons.forEach(btn => {
   });
 });
 
-// --- Reservation Logic ---
-function handleReservation(event) {
+// --- Reservation Logic with Firestore ---
+async function handleReservation(event) {
   event.preventDefault();
 
   const nameInput = document.getElementById('clientName');
   const daySelect = document.getElementById('reservationDay');
   const timeSelect = document.getElementById('reservationTime');
   const guestsSelect = document.getElementById('reservationGuests');
+  const submitBtn = event.target.querySelector('button[type="submit"]');
 
   if (!nameInput.value || !daySelect.value || !timeSelect.value || !guestsSelect.value) {
     alert("Por favor, preencha todos os campos da reserva.");
     return;
   }
 
-  // Create customized success message
   const name = nameInput.value;
   const day = daySelect.value;
   const time = timeSelect.value;
   const guests = guestsSelect.value;
 
-  const successMessage = `Olá, <strong>${name}</strong>! Sua pré-reserva para <strong>${guests}</strong> na <strong>${day} às ${time}</strong> foi registrada com sucesso.<br><br>Um e-mail de confirmação foi enviado. Esperamos você no Azunna Sushi!`;
+  // Loading state
+  submitBtn.textContent = '⏳ Salvando reserva...';
+  submitBtn.disabled = true;
 
-  // Display Success Modal
-  const msgEl = document.getElementById('successMessage');
-  const modal = document.getElementById('successModal');
-  
-  if (msgEl && modal) {
-    msgEl.innerHTML = successMessage;
-    modal.classList.add('open');
+  try {
+    // Salva no Firestore
+    await addDoc(collection(db, "reservas"), {
+      nome: name,
+      dia: day,
+      horario: time,
+      pessoas: guests,
+      criadoEm: serverTimestamp()
+    });
+
+    // Exibe modal de sucesso
+    const successMessage = `Olá, <strong>${name}</strong>! Sua pré-reserva para <strong>${guests}</strong> na <strong>${day} às ${time}</strong> foi registrada com sucesso.<br><br>Um e-mail de confirmação foi enviado. Esperamos você no Azunna Sushi!`;
+    const msgEl = document.getElementById('successMessage');
+    const modal = document.getElementById('successModal');
+
+    if (msgEl && modal) {
+      msgEl.innerHTML = successMessage;
+      modal.classList.add('open');
+    }
+
+    // Reset form
+    document.getElementById('bookingForm').reset();
+
+  } catch (error) {
+    console.error("Erro ao salvar reserva:", error);
+    alert("Ocorreu um erro ao registrar sua reserva. Por favor, tente novamente.");
+  } finally {
+    submitBtn.textContent = 'Confirmar Pré-Reserva';
+    submitBtn.disabled = false;
   }
-
-  // Reset form
-  document.getElementById('bookingForm').reset();
 }
+
+// Expõe a função para o HTML
+window.handleReservation = handleReservation;
 
 function closeModal() {
   const modal = document.getElementById('successModal');
@@ -113,6 +139,8 @@ function closeModal() {
     modal.classList.remove('open');
   }
 }
+
+window.closeModal = closeModal;
 
 // --- Intersection Observer for Scroll Fade-in ---
 document.addEventListener("DOMContentLoaded", function() {
@@ -135,7 +163,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }, observerOptions);
 
   fadeElements.forEach(el => {
-    // Initial states for animation
     el.style.opacity = '0';
     el.style.transform = 'translateY(25px)';
     el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';

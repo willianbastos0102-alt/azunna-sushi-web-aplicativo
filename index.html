@@ -458,7 +458,22 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
+  <!-- Firebase Configuration (preencha firebase-config.js com os seus dados) -->
+  <script>
+    // Lê as configurações do Firebase e expõe globalmente
+    fetch('firebase-config.js')
+      .then(r => r.text())
+      .then(text => {
+        // Extrai o objeto de config
+        const match = text.match(/const firebaseConfig\s*=\s*(\{[\s\S]*?\});/);
+        if (match) {
+          window.FIREBASE_CONFIG = eval('(' + match[1] + ')');
+        }
+      })
+      .catch(e => console.warn('firebase-config.js não encontrado:', e));
+  </script>
+
+  <!-- Script Principal (módulo ES para suportar Firebase SDK) -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
